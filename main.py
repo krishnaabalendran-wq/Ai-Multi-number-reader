@@ -9,7 +9,6 @@ import cv2
 import numpy as np
 from PIL import Image
 
-# --- Enhanced Model Architecture with Additional Layer ---
 class ConvNet(nn.Module):
     def __init__(self):
         super(ConvNet, self).__init__()
@@ -190,7 +189,6 @@ if __name__ == '__main__':
                               batch_size=128, shuffle=True)
 
     model = ConvNet().to(device)
-    # AdamW is often more stable with weight decay
     optimizer = optim.AdamW(model.parameters(), lr=0.001, weight_decay=1e-4)
     # Learning rate scheduler to fine-tune accuracy in later epochs
     scheduler = optim.lr_scheduler.StepLR(optimizer, step_size=2, gamma=0.5)
